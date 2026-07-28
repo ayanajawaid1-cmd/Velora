@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Velora</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<div class="desktop">
+
+
+<div class="top-bar">
+
+    <div class="logo">
+        Velora
+    </div>
+
+
+    <div id="clock">
+        12:00
+    </div>
+
+</div>
+
+
+
+<div class="welcome">
+
+    <h1>
+        Welcome back, Ayana
+    </h1>
+
+    <p>
+        Your workspace is ready.
+    </p>
+
+</div>
+
+
+
+<!-- Weather -->
+
+<div class="weather">
+
+<h2>
+Weather
+</h2>
+
+<div id="weatherText">
+Loading...
+</div>
+
+</div>
+
+
+
+
+
+<!-- Apps -->
+
+<div class="apps">
+
+
+<div class="app-icon" onclick="openApp('notes')">
+📝
+<span>Notes</span>
+</div>
+
+
+
+<div class="app-icon" onclick="openApp('calculator')">
+🧮
+<span>Calculator</span>
+</div>
+
+
+
+<div class="app-icon" onclick="openApp('settings')">
+⚙️
+<span>Settings</span>
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- Search -->
+
+<div class="search">
+
+🔍
+
+<input 
+id="searchBox"
+placeholder="Search Velora..."
+onkeydown="searchVelora(event)"
+>
+
+</div>
+
+
+
+
+
+<!-- Notes -->
+
+<div id="notes" class="window">
+
+
+<h2>
+Notes
+</h2>
+
+
+<textarea placeholder="Write something..."></textarea>
+
+
+<button onclick="closeApp('notes')">
+Close
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- Calculator -->
+
+
+<div id="calculator" class="window">
+
+
+<h2>
+Calculator
+</h2>
+
+
+<input id="display" readonly>
+
+
+<div class="calc-buttons">
+
+
+<button onclick="press('7')">7</button>
+<button onclick="press('8')">8</button>
+<button onclick="press('9')">9</button>
+<button onclick="press('/')">÷</button>
+
+
+<button onclick="press('4')">4</button>
+<button onclick="press('5')">5</button>
+<button onclick="press('6')">6</button>
+<button onclick="press('*')">×</button>
+
+
+<button onclick="press('1')">1</button>
+<button onclick="press('2')">2</button>
+<button onclick="press('3')">3</button>
+<button onclick="press('-')">−</button>
+
+
+<button onclick="press('0')">0</button>
+<button onclick="clearCalc()">C</button>
+<button onclick="calculate()">=</button>
+<button onclick="press('+')">+</button>
+
+
+</div>
+
+
+<button onclick="closeApp('calculator')">
+Close
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- Settings -->
+
+
+<div id="settings" class="window">
+
+
+<h2>
+Settings
+</h2>
+
+
+<p>
+Velora Preferences
+</p>
+
+
+
+<h3>
+Clock Format
+</h3>
+
+
+<label>
+<input type="radio" name="clock" onclick="setClockFormat('12')">
+12 Hour
+</label>
+
+
+<br>
+
+
+<label>
+<input type="radio" name="clock" onclick="setClockFormat('24')">
+24 Hour
+</label>
+
+
+
+<h3>
+Theme
+</h3>
+
+
+<button onclick="changeTheme()">
+Change Theme
+</button>
+
+
+<button onclick="closeApp('settings')">
+Close
+</button>
+
+
+</div>
+
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
