@@ -22,6 +22,9 @@ Velora currently includes:
 
 🔍 Desktop search with Google integration
 
+🖱️ Draggable app windows
+
+
 💬 How to Use Velora
 
 You can interact with Velora by:
@@ -35,6 +38,8 @@ You can interact with Velora by:
 ● Performing calculations
 
 ● Changing themes in Settings
+
+● Moving windows around your desktop
 
 🛠️ Built With
 
