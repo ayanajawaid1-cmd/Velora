@@ -1,3 +1,4 @@
+
 // CLOCK
 
 
@@ -256,23 +257,40 @@ alert("Weather is already on your desktop 🌤");
 
 }
 
+else if(query.includes("space")){
+
+    openApp("space");
+
+}
+
+else if(query.includes("mystery")){
+
+    openApp("mystery");
+
+}
+
+else if(query.includes("arcade")){
+
+    openApp("arcade");
+
+}
 
 else if(query !== ""){
 
-
-window.open(
-"https://www.google.com/search?q=" 
-+ encodeURIComponent(query),
-"_blank"
-);
-
+    window.open(
+        "https://www.google.com/search?q=" + encodeURIComponent(query),
+        "_blank"
+    );
 
 }
 
 
 }
 
+
 }
+
+
 
 
 
@@ -435,4 +453,356 @@ themeIndex
 );
 
 
+}
+// ===============================
+// SPACE EXPLORER
+// ===============================
+
+const planets = [
+{
+name:"🌎 Earth",
+info:"Distance from Sun: 149.6 million km<br>Gravity: 9.8 m/s²<br>Moons: 1<br><br>Fact: Earth is the only known planet with life."
+},
+{
+name:"🔴 Mars",
+info:"Distance from Sun: 227.9 million km<br>Gravity: 3.7 m/s²<br>Moons: 2<br><br>Fact: Mars has the largest volcano in the solar system."
+},
+{
+name:"🪐 Saturn",
+info:"Distance from Sun: 1.43 billion km<br>Gravity: 10.4 m/s²<br>Moons: 146<br><br>Fact: Saturn's rings are made mostly of ice."
+},
+{
+name:"🟠 Jupiter",
+info:"Distance from Sun: 778 million km<br>Gravity: 24.8 m/s²<br>Moons: 95<br><br>Fact: Jupiter is the largest planet."
+},
+{
+name:"☿ Mercury",
+info:"Distance from Sun: 57.9 million km<br>Gravity: 3.7 m/s²<br>Moons: 0<br><br>Fact: Mercury is the closest planet to the Sun."
+}
+];
+
+
+function loadSpace(){
+
+let box=document.getElementById("planetList");
+
+if(!box) return;
+
+
+box.innerHTML="";
+
+
+planets.forEach(planet=>{
+
+let button=document.createElement("button");
+
+button.innerHTML=planet.name;
+
+
+button.onclick=()=>{
+
+box.innerHTML =
+"<h3>"+planet.name+"</h3>"+
+"<p>"+planet.info+"</p>"+
+"<button onclick='loadSpace()'>⬅ Back</button>";
+
+};
+
+
+box.appendChild(button);
+
+
+});
+
+
+}
+
+
+loadSpace();
+
+
+
+
+
+// ===============================
+// MYSTERY FILES
+// ===============================
+
+
+const cases=[
+
+{
+title:"🚢 Mary Celeste",
+text:"Year: 1872<br><br>A ship was found abandoned in the Atlantic Ocean. The cargo and supplies were still onboard. The crew was never found."
+},
+
+{
+title:"📜 Voynich Manuscript",
+text:"A mysterious book written in an unknown language. Researchers still debate its origin."
+},
+
+{
+title:"🏔️ Dyatlov Pass Incident",
+text:"Year: 1959<br><br>Nine hikers died in the Ural Mountains. The exact events remain debated."
+},
+
+{
+title:"🏝️ Roanoke Colony",
+text:"A colony disappeared in 1590. The reason remains one of history's famous mysteries."
+}
+
+];
+
+
+function loadMystery(){
+
+let box=document.getElementById("caseList");
+
+if(!box) return;
+
+
+box.innerHTML="";
+
+
+cases.forEach(item=>{
+
+
+let button=document.createElement("button");
+
+
+button.innerHTML=item.title;
+
+
+button.onclick=()=>{
+
+box.innerHTML=
+box.innerHTML=
+"<h3>"+item.title+"</h3>"+
+"<p>"+item.text+"</p>"+
+"<button onclick='loadMystery()'>⬅ Back</button>";
+};
+
+
+box.appendChild(button);
+
+
+});
+
+
+}
+
+
+loadMystery();
+
+
+
+
+
+// ===============================
+// MINI ARCADE
+// ===============================
+
+function backArcade(){
+
+    document.getElementById("gameArea").innerHTML = "";
+
+}
+
+
+// Reaction Test
+
+let reactionStart;
+
+
+function reactionGame(){
+
+let area = document.getElementById("gameArea");
+
+area.innerHTML = `
+<h3>Wait for green...</h3>
+<button onclick="backArcade()">⬅ Back</button>
+`;
+
+
+setTimeout(()=>{
+
+reactionStart = Date.now();
+
+area.innerHTML = `
+<div id="reactionBox">
+<h2>CLICK NOW!</h2>
+</div>
+
+<button onclick="backArcade()">⬅ Back</button>
+`;
+
+
+document.getElementById("reactionBox").onclick=function(){
+
+let time = Date.now() - reactionStart;
+
+
+area.innerHTML = `
+<h3>Your reaction: ${time} ms</h3>
+<button onclick="backArcade()">⬅ Back</button>
+`;
+
+};
+
+
+},2000);
+
+}
+
+
+
+
+
+// Memory Match
+
+function memoryGame(){
+
+let area=document.getElementById("gameArea");
+
+
+let cards=[
+"🐱","🐱",
+"🚀","🚀",
+"🌎","🌎"
+];
+
+
+cards.sort(()=>Math.random()-0.5);
+
+
+area.innerHTML="";
+
+
+let first=null;
+
+
+cards.forEach(icon=>{
+
+
+let card=document.createElement("button");
+
+card.innerHTML="❓";
+
+
+card.onclick=function(){
+
+
+card.innerHTML=icon;
+
+
+if(!first){
+
+first=card;
+
+}
+
+else{
+
+
+if(first.innerHTML===card.innerHTML){
+
+first=null;
+
+}
+
+else{
+
+
+setTimeout(()=>{
+
+first.innerHTML="❓";
+card.innerHTML="❓";
+
+},700);
+
+
+first=null;
+
+}
+
+
+}
+
+
+};
+
+
+area.appendChild(card);
+
+
+});
+
+
+let back=document.createElement("button");
+
+back.innerHTML="⬅ Back";
+
+back.onclick=backArcade;
+
+area.appendChild(back);
+
+
+}
+
+
+
+
+
+// Puzzle
+
+function puzzleGame(){
+
+let area=document.getElementById("gameArea");
+
+
+area.innerHTML=`
+
+<h3>🧩 Number Puzzle</h3>
+
+<p>Complete the puzzle:</p>
+
+<div id="puzzle">
+3 1 6<br>
+7 5 2<br>
+9 4 8
+</div>
+
+<button onclick="backArcade()">
+⬅ Back
+</button>
+
+`;
+
+// USER NAME
+
+let username = localStorage.getItem("veloraUser");
+
+
+if (!username) {
+
+    username = prompt("Welcome to Velora! What is your name?");
+
+    if (username && username.trim() !== "") {
+
+        localStorage.setItem(
+            "veloraUser",
+            username
+        );
+
+    }
+
+}
+
+
+if (username) {
+
+    document.getElementById("welcomeText").textContent =
+    "Welcome back, " + username;
+
+}
 }

@@ -182,21 +182,25 @@ color:#1C1C1E;
 
 .apps {
 
+        position:absolute;
+
+    top:180px;
+
+    right:50px;
+
     display:flex;
 
-    gap:35px;
+    flex-direction:row;
 
-    margin-top:55px;
-
+    gap:25px;
 }
 
 
 
 .app-icon {
 
-    width:75px;
-
-    height:75px;
+   width:90px;
+    height:90px;
 
 
     display:flex;
@@ -233,11 +237,15 @@ color:#1C1C1E;
 
 .app-icon span {
 
-    font-size:13px;
+   font-size:11px;
 
-    margin-top:8px;
+margin-top:6px;
 
-    color:#333;
+text-align:center;
+
+width:85px;
+
+line-height:1.2;
 
 }
 
@@ -265,31 +273,25 @@ color:#1C1C1E;
 
     position:absolute;
 
-    bottom:40px;
+    bottom:25px;
 
     left:50%;
 
     transform:translateX(-50%);
 
+    width:320px;
 
-    width:400px;
+    padding:12px 20px;
 
-
-    padding:15px 25px;
-
-
-    border-radius:30px;
-
+    border-radius:25px;
 
     background:
+    rgba(255,255,255,.45);
 
-    rgba(255,255,255,.6);
-
+    backdrop-filter:blur(20px);
 
     box-shadow:
-
-    0 10px 30px rgba(0,0,0,.08);
-
+    0 10px 30px rgba(0,0,0,.12);
 
 }
 

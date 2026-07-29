@@ -35,9 +35,9 @@
 
 <div class="welcome">
 
-    <h1>
-        Welcome back, Ayana
-    </h1>
+    <h1 id="welcomeText">
+    Welcome back
+</h1>
 
     <p>
         Your workspace is ready.
@@ -88,7 +88,20 @@ Loading...
 ⚙️
 <span>Settings</span>
 </div>
+<div class="app-icon" onclick="openApp('space')">
+🛰️
+<span>Space Explorer</span>
+</div>
 
+<div class="app-icon" onclick="openApp('mystery')">
+🕵️
+<span>Mystery Files</span>
+</div>
+
+<div class="app-icon" onclick="openApp('arcade')">
+🎮
+<span>Mini Arcade</span>
+</div>
 
 </div>
 
@@ -191,6 +204,69 @@ Close
 
 </div>
 
+<!-- Space Explorer -->
+
+<div id="space" class="window">
+
+<h2>🛰️ Space Explorer</h2>
+
+<div id="planetList"></div>
+
+<button onclick="closeApp('space')">
+Close
+</button>
+
+</div>
+
+
+
+<!-- Mystery Files -->
+
+<div id="mystery" class="window">
+
+<h2>🕵️ Mystery Files</h2>
+
+<div id="caseList"></div>
+
+<button onclick="closeApp('mystery')">
+Close
+</button>
+
+</div>
+
+
+
+<!-- Mini Arcade -->
+
+<div id="arcade" class="window">
+
+<h2>🎮 Mini Arcade</h2>
+
+
+<button onclick="reactionGame()">
+⚡ Reaction Test
+</button>
+
+
+<button onclick="memoryGame()">
+🧠 Memory Match
+</button>
+
+
+<button onclick="puzzleGame()">
+🧩 Puzzle
+</button>
+
+
+<div id="gameArea"></div>
+
+
+<button onclick="closeApp('arcade')">
+Close
+</button>
+
+
+</div>
 
 
 
